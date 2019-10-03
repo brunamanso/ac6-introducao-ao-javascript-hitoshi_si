@@ -20,7 +20,27 @@
  * @param {Number} numero2
  * @returns {Number} resultado da operação
  */
-function operacoesBasicas(operacao, numero1, numero2) { }
+
+function operacoesBasicas(operacao, numero1, numero2) {
+    if(operacao == 'A'){
+        return numero1 + numero2
+}   else if(operacao == 'S'){
+        return numero1 - numero2
+}   else if(operacao == 'M'){
+        return numero1 * numero2
+}   else if(operacao == 'D'){
+        if(numero2 != 0){
+            return numero1 / numero2
+        }
+        else{
+            return NaN
+        }
+}   else if(operacao == 'P'){
+        return numero1 ** numero2
+}   else if(operacao == 'R'){
+    return numero1 ** (1 / numero2)
+}
+ }
 
 /**
  * Escreva uma função que recebe um número, e duas strings de uma letra que representam, 
@@ -43,4 +63,46 @@ function operacoesBasicas(operacao, numero1, numero2) { }
  * @param {String} escala_convertida a escala para converter a temperatura passada (C, K ou F)
  * @return {Number} temperatura na escala pedida
  */
-function converterTemperatura(temperatura, escala_original, escala_convertida){ }
+function converterTemperatura(temperatura, escala_original, escala_convertida){
+    if(escala_original == "C"){
+        if(escala_convertida == "F"){
+            F = 1.8*temperatura + 32
+            return F
+        }
+        else if(escala_convertida == "K"){
+            K = temperatura + 273.15
+            return K
+        }
+        else if(escala_convertida == "C"){
+            return temperatura
+        }
+    }
+    else if(escala_original == "F"){
+        if(escala_convertida == "C"){
+            return (temperatura - 32) / 1.8
+        }
+        else if(escala_convertida == "K"){
+            return ((temperatura - 32) / 1.8) + 273.15
+        }
+        else if(escala_convertida == "F"){
+            return temperatura
+        }
+    }
+    else if(escala_original == "K"){
+        if(escala_convertida == "C"){
+            return temperatura - 273.15
+        }
+        else if(escala_convertida == "F"){
+            return (temperatura - 273.15) * 1.8 + 32
+        }
+        else if(escala_convertida == "K"){
+            return temperatura
+        }
+    }
+    else if(escala_convertida != "F" || escala_convertida != "C" || escala_convertida != "K"){
+        return null
+    }
+    else if(escala_original != "F" || escala_original != "C" || escala_original != "K"){
+        return null
+    }
+}
